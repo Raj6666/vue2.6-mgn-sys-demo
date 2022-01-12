@@ -1,0 +1,62 @@
+/*
+* 全局公共样式
+*/
+// color 颜色从深到浅
+$colorR1: #ff4640;
+$colorR2: #ee3d37;
+
+$colorP1: #ef3664;
+$colorP2: #fb658a;
+
+$colorG1: #333333;
+$colorG2: #6c6c6c;
+$colorG3: #999999;
+$colorG4: #9c9c9c;
+$colorG5: #ebebeb;
+
+$colorBorder: #e5e5e5;
+
+$colorBG0: #ffffff;
+$colorBG1: #f5f5f5;
+$colorBG2: #fafafa;
+$color0066C0: #0066c0;
+
+//colors
+$color_ff: #ffffff;
+$color_e5: #e5e5e5;
+$color_f5: #f5f5f5;
+$color_eb: #ebebeb;
+$color_fa: #fafafa;
+$color_6c: #6c6c6c;
+$color_9c: #9c9c9c;
+$color_pink: #fb658a;
+$color_pink_dark: #ef3664;
+body {
+    background-color: rgb(245, 246, 250);
+}
+// 页面布局通用样式
+.page-wrapper {
+
+  .content-width {
+    position: relative;
+    margin: auto;
+    width: 1330px;
+  }
+
+  .content {
+    display: flex;
+    margin-top: 25px;
+  }
+}
+
+.btn-large {
+  display: block;
+  padding: 13px 62px;
+  width: 180px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #fb658a;
+  box-sizing: border-box;
+  cursor: pointer;
+}

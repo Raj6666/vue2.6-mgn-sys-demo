@@ -1,0 +1,107 @@
+{
+  "name": "vue2.6-mgn-sys-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --mode development",
+    "serve": "vue-cli-service serve --mode stage",
+    "serve:local": "vue-cli-service serve --mode stage",
+    "serve:dev": "vue-cli-service serve --mode development",
+    "serve:test": "vue-cli-service serve --mode test",
+    "serve:rc": "vue-cli-service serve --mode rc",
+    "serve:production": "vue-cli-service serve --mode production",
+    "build": "vue-cli-service build --mode production",
+    "build:dev": "vue-cli-service build --mode development",
+    "build:test": "vue-cli-service build --mode test",
+    "build:rc": "vue-cli-service build --mode rc",
+    "commit": "npx git-cz",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md  && git commit -m \"docs: 更新changelog-版本信息`\" ",
+    "genChangelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md ",
+    "version-major": "standard-version -r major && npm run genChangelog ",
+    "version-minor": "standard-version -r minor && npm run genChangelog ",
+    "version-patch": "standard-version -r patch && npm run genChangelog ",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.18.1",
+    "element-theme-chalk": "0.0.6",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2",
+    "vuex": "^3.6.2",
+    "vvic-common": "^0.24.0",
+    "vvic-element-ui": "0.0.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-router": "^4.5.13",
+    "@vue/cli-plugin-vuex": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "axios": "^0.21.4",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "chalk": "^4.1.0",
+    "compression-webpack-plugin": "^5.0.1",
+    "conventional-changelog": "^3.1.24",
+    "conventional-changelog-cli": "^2.1.1",
+    "conventional-changelog-preset-loader": "^2.3.4",
+    "conventional-commits-detector": "^1.0.3",
+    "conventional-recommended-bump": "^6.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "husky": "1.3.1",
+    "image-webpack-loader": "^8.0.1",
+    "lint-staged": "8.1.5",
+    "mockjs": "^1.1.0",
+    "prettier": "^2.3.1",
+    "prettier-eslint-cli": "^5.0.1",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^8.0.2",
+    "standard-version": "^9.3.0",
+    "stylelint": "13.13.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-standard": "22.0.0",
+    "stylelint-order": "^5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "*.md": [
+      "git add"
+    ],
+    "*.js": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix src/**/*.js  --quiet",
+      "git add"
+    ],
+    "*.vue": [
+      "prettier --config .prettierrc --write",
+      "stylelint --fix src/**/*.vue --quiet",
+      "eslint --fix  src/**/*.vue --quiet",
+      "git add"
+    ],
+    "src/**/*.(scss|css)": [
+      "stylelint src/**/*.(scss|css) --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
